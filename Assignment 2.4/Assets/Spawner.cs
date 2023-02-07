@@ -6,7 +6,7 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
 
-    [SerializeField] private GameObject prefab;
+    public GameObject prefab;
 	[SerializeField] private float spawnRate = 10;
 	[SerializeField] private float spawnMult = 1;
 
@@ -32,12 +32,12 @@ public class Spawner : MonoBehaviour
             else
                 count++;
 
-            for (int i = 0; i < count; i++)
-            {
 				Vector3 pos = spawnPosition;
 				pos += new Vector3(Random.Range(range.x, range.y), Random.Range(rangeY.x, rangeY.y), 0);
 			    Instantiate(prefab, pos, Quaternion.identity, gameObject.transform);
-            }
+
+                print("Spawned");
+            
         }
 
     }
